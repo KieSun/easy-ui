@@ -1,10 +1,17 @@
 import Vue from 'vue';
 
+const createElm = function () {
+  const elm = document.createElement('div');
+  document.body.appendChild(elm);
+
+  return elm;
+};
+
 /**
  * 回收 vm
  * @param  {Object} vm
  */
-exports.destroyVM = function(vm) {
+export let destroyVM = function (vm) {
   vm.$destroy && vm.$destroy();
   vm.$el &&
   vm.$el.parentNode &&
@@ -17,7 +24,7 @@ exports.destroyVM = function(vm) {
  * @param  {Boolean=false} mounted 是否添加到 DOM 上
  * @return {Object} vm
  */
-exports.createVue = function(Compo, mounted = false) {
+export let createVue = function (Compo, mounted = false) {
   if (Object.prototype.toString.call(Compo) === '[object String]') {
     Compo = { template: Compo };
   }
@@ -32,7 +39,7 @@ exports.createVue = function(Compo, mounted = false) {
  * @param  {Boolean=false} mounted  - 是否添加到 DOM 上
  * @return {Object} vm
  */
-exports.createTest = function(Compo, propsData = {}, mounted = false) {
+export let createTest = function (Compo, propsData = {}, mounted = false) {
   if (propsData === true || propsData === false) {
     mounted = propsData;
     propsData = {};
