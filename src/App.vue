@@ -10,14 +10,15 @@
 </template>
 
 <script>
-import EInput from "../package/input/input";
-export default {
-  components: { EInput }
-};
+  import EInput from "../package/input/input";
+
+  export default {
+    components: { EInput }
+  };
 </script>
 
 <style>
-.box {
-  margin: 20px;
-}
+  .box {
+    margin: 20px;
+  }
 </style>
